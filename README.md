@@ -8,32 +8,37 @@ Both, mechanical and electrical design are to a notable degree based on the [Ard
 # Pin mapping
 
 UNO pin name | ATMEGA328 pin name | STM8S105K6 pin name
--------------|--------------------|--------------------
-AD0          | PC0                | PB0
-AD1          | PC1                | PB1
-AD2          | PC2                | PB2
-AD3          | PC3                | PB3
-AD4/SDA      | PC4                | PB5
-AD5/SCL      | PC5                | PB4
-IO0/RX       | PD0                | PD6
-IO1/TX       | PD1                | PD5
-IO2          | PD2                | PD7
-IO3          | PD3                | PD2
-IO4          | PD4                | PD0
-IO5          | PD5                | PD4
-IO6          | PD6                | PD3
-IO7          | PD7                | PD1
-IO8          | PB0                | PC1
-IO9          | PB1                | PC3
-IO10         | PB2                | PC4
-IO11/MOSI    | PB3                | PC6
-IO12/MISO    | PB4                | PC7
-IO13/SCK     | PB5                | PC5
-_IO14_       | -                  | PC2
-_SS_         | -                  | PE5
-AREF         | AREF               | PF4
+-------------|--------------------|----------------------------------------
+AD0          | PC0/ADC0           | PB0/AIN0 [TIM1_CH1N]
+AD1          | PC1/ADC1           | PB1/AIN1 [TIM1_CH2N]
+AD2          | PC2/ADC2           | PB2/AIN2 [TIM1_CH3N]
+AD3          | PC3/ADC3           | PB3/AIN3 [TIM1_ETR]
+AD4/SDA      | PC4/ADC4           | PB5/AIN5 [I2C_SDA]
+AD5/SCL      | PC5/ADC5           | PB4/AIN4 [I2C_SCL]
+IO0/RX       | PD0/RXD            | PD6/UART2_RX
+IO1/TX       | PD1/TXD            | PD5/UART2_TX
+IO2          | PD2/INT0           | PD7/TLI [TIM1_CH4]
+IO3          | PD3/INT1/OC2B      | PD2 (HS)/TIM3_CH1 [TIM2_CH3]
+IO4          | PD4/T0/XCK         | PD0 (HS)/TIM3_CH2 [TIM1_BKIN]/[CLK_COO]
+IO5          | PD5/T1/OC0B        | PD4 (HS)/TIM2_CH1 [BEEP]
+IO6          | PD6/AIN0/OC0A      | PD3 (HS)/TIM2_CH2/ADC_ETR
+IO7          | PD7/AIN1           | PD1 (HS)/SWIM
+IO8          | PB0/ICP1/CLKO      | PC1 (HS)/TIM1_CH1/UART2_CK
+IO9          | PB1/OC1A           | PC3 (HS)/TIM1_CH3
+IO10         | PB2/NSS/OC1B       | PC4 (HS)/TIM1_CH4
+IO11/MOSI    | PB3/MOSI/OC2A      | PC6 (HS)/SPI_MOSI
+IO12/MISO    | PB4/MISO           | PC7 (HS)/SPI_MISO
+IO13/SCK     | PB5/SCK            | PC5 (HS)/SPI_SCK
+_IO14_       | --                 | PC2 (HS)/TIM1_CH2
+_SS_         | --                 | PE5/SPI_NSS
+AREF         | AREF               | PF4/AIN12
+RESET        | NRESET             | NRST
+--           | PB6/TOSC1/XTAL1    | PA1/OSCIN
+--           | PB7/TOSC2/XTAL2    | PA2/OSCOUT
 
 # Differences
+
+The following paragraphs highlight the most important differences between Arduino UNO and sduino UNO.
 
 ## Mechanical
 
@@ -47,12 +52,16 @@ The RX and TX LEDs are connected to the RX and TX lines (IO pin 0 and 1, respect
 
 ## Functional
 
-Like many Arduino UNO clones, the sduino UNO uses CH340G USB to serial converter instead of an Atmega16U2 for communication with the host PC.
+Like many Arduino UNO clones, the sduino UNO uses a CH340G USB to serial converter instead of an Atmega16U2 for communication with the host PC.
 The USB interface Chip therefore cannot be repurposed as a coprocessor or keyboard/mouse simulator.
-There is no analog comparator in the STM8S105K6 microcontroller.
-IO11 has no PWM functionality, IO8 and IO4 have.
-AREF is actually an additional analog input, its use as reference voltage for A/D conversion has to be imitated in software.
-Likewise, IO10 does not dub as hardware-slave-select line for the SPI bus.  This, however, can mostly be overcome by software-emulation.
+
+There is no analog comparator in the STM8S105K6 microcontroller and AREF is actually an additional analog input.
+Its use as reference voltage for A/D conversion has to be imitated in software.
+IO11 has no hardware PWM functionality for analog_write, IO8 and IO4 have.
+IO2, AD0, AD1 and AD2 can be used as PWM outputs via alternate function mapping.
+
+Likewise, IO10 does not serve as hardware-slave-select line for the SPI bus.
+This, however, can mostly be overcome by software-emulation, because the STM8 allows for slave-select to be controlled in software, e.g. in an interrupt handler.
 The actual slave-select line has been made available via an exra pin.
 
 ## Software
