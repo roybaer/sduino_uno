@@ -41,12 +41,12 @@ encoding utf-8
 Sheet 1 1
 Title "sduino UNO"
 Date "2017-09-15"
-Rev "2017-10-01"
-Comp ""
-Comment1 ""
-Comment2 ""
-Comment3 ""
-Comment4 ""
+Rev "2017-10-08"
+Comp "Benedikt Freisen"
+Comment1 "see http://creativecommons.org/licenses/by-sa/2.5/"
+Comment2 "Released under Creative Commons Attribution-ShareAlike 2.5 Generic License,"
+Comment3 "In part based on Arduino UNO design, see arduino.cc"
+Comment4 "A development board with STM8S105K6 MCU in Arduino UNO form factor"
 $EndDescr
 $Comp
 L NCP1117-5.0_SOT223 U1
@@ -598,9 +598,9 @@ IO9
 Text Label 8800 4750 0    60   ~ 0
 IO10
 Text Label 8800 6050 0    60   ~ 0
-SS
+IO24/SS
 Text Label 8800 4550 0    60   ~ 0
-IO14
+IO23
 Text Label 10200 4100 2    60   ~ 0
 AD0
 Text Label 10200 4200 2    60   ~ 0
@@ -797,12 +797,12 @@ IO13/SCK
 $Comp
 L GND #PWR020
 U 1 1 59BEB375
-P 10700 2900
-F 0 "#PWR020" H 10700 2650 50  0001 C CNN
-F 1 "GND" H 10700 2750 50  0000 C CNN
-F 2 "" H 10700 2900 50  0001 C CNN
-F 3 "" H 10700 2900 50  0001 C CNN
-	1    10700 2900
+P 10900 2900
+F 0 "#PWR020" H 10900 2650 50  0001 C CNN
+F 1 "GND" H 10900 2750 50  0000 C CNN
+F 2 "" H 10900 2900 50  0001 C CNN
+F 3 "" H 10900 2900 50  0001 C CNN
+	1    10900 2900
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -884,9 +884,9 @@ F 3 "" H 1300 5100 50  0001 C CNN
 	1    1300 5100
 	1    0    0    -1  
 $EndComp
-Text Label 6000 1800 2    60   ~ 0
+Text Label 6100 2200 2    60   ~ 0
 IO0/RX
-Text Label 6000 1700 2    60   ~ 0
+Text Label 6100 2500 2    60   ~ 0
 IO1/TX
 Text Label 4500 4200 2    60   ~ 0
 RESET
@@ -970,18 +970,18 @@ $EndComp
 Text Label 5400 5700 2    60   ~ 0
 USBVCC
 Text Label 9900 2800 2    60   ~ 0
-IO14
+IO23
 Text Label 10400 2800 0    60   ~ 0
-SS
+IO24/SS
 $Comp
 L +5V #PWR029
 U 1 1 59BF0D38
-P 10700 2400
-F 0 "#PWR029" H 10700 2250 50  0001 C CNN
-F 1 "+5V" H 10700 2540 50  0000 C CNN
-F 2 "" H 10700 2400 50  0001 C CNN
-F 3 "" H 10700 2400 50  0001 C CNN
-	1    10700 2400
+P 10900 2400
+F 0 "#PWR029" H 10900 2250 50  0001 C CNN
+F 1 "+5V" H 10900 2540 50  0000 C CNN
+F 2 "" H 10900 2400 50  0001 C CNN
+F 3 "" H 10900 2400 50  0001 C CNN
+	1    10900 2400
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1334,13 +1334,9 @@ Wire Wire Line
 Wire Wire Line
 	5000 5300 5100 5300
 Wire Wire Line
-	10400 2700 10700 2700
+	10400 2700 10900 2700
 Wire Wire Line
-	10700 2700 10700 2900
-Wire Wire Line
-	10400 2500 10700 2500
-Wire Wire Line
-	10700 2500 10700 2400
+	10400 2500 10900 2500
 Wire Wire Line
 	1300 1300 1300 1200
 Wire Wire Line
@@ -1390,4 +1386,17 @@ $EndComp
 Wire Wire Line
 	6900 6000 6700 6000
 Connection ~ 6700 6000
+Text Label 5900 2000 2    60   ~ 0
+MCUVCC
+Wire Wire Line
+	6000 1700 5900 1700
+Wire Wire Line
+	5900 1700 5900 2000
+Wire Wire Line
+	6000 1800 5900 1800
+Connection ~ 5900 1800
+Wire Wire Line
+	10900 2500 10900 2400
+Wire Wire Line
+	10900 2700 10900 2900
 $EndSCHEMATC

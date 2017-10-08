@@ -7,34 +7,36 @@ Both, mechanical and electrical design are to a notable degree based on the [Ard
 
 # Pin mapping
 
-UNO pin name | ATMEGA328 pin name | STM8S105K6 pin name
--------------|--------------------|----------------------------------------
-AD0          | PC0/ADC0           | PB0/AIN0 [TIM1_CH1N]
-AD1          | PC1/ADC1           | PB1/AIN1 [TIM1_CH2N]
-AD2          | PC2/ADC2           | PB2/AIN2 [TIM1_CH3N]
-AD3          | PC3/ADC3           | PB3/AIN3 [TIM1_ETR]
-AD4/SDA      | PC4/ADC4           | PB5/AIN5 [I2C_SDA]
-AD5/SCL      | PC5/ADC5           | PB4/AIN4 [I2C_SCL]
-IO0/RX       | PD0/RXD            | PD6/UART2_RX
-IO1/TX       | PD1/TXD            | PD5/UART2_TX
-IO2          | PD2/INT0           | PD7/TLI [TIM1_CH4]
-IO3          | PD3/INT1/OC2B      | PD2 (HS)/TIM3_CH1 [TIM2_CH3]
-IO4          | PD4/T0/XCK         | PD0 (HS)/TIM3_CH2 [TIM1_BKIN]/[CLK_COO]
-IO5          | PD5/T1/OC0B        | PD4 (HS)/TIM2_CH1 [BEEP]
-IO6          | PD6/AIN0/OC0A      | PD3 (HS)/TIM2_CH2/ADC_ETR
-IO7          | PD7/AIN1           | PD1 (HS)/SWIM
-IO8          | PB0/ICP1/CLKO      | PC1 (HS)/TIM1_CH1/UART2_CK
-IO9          | PB1/OC1A           | PC3 (HS)/TIM1_CH3
-IO10         | PB2/NSS/OC1B       | PC4 (HS)/TIM1_CH4
-IO11/MOSI    | PB3/MOSI/OC2A      | PC6 (HS)/SPI_MOSI
-IO12/MISO    | PB4/MISO           | PC7 (HS)/SPI_MISO
-IO13/SCK     | PB5/SCK            | PC5 (HS)/SPI_SCK
-_IO14_       | --                 | PC2 (HS)/TIM1_CH2
-_SS_         | --                 | PE5/SPI_NSS
-AREF         | AREF               | PF4/AIN12
-RESET        | NRESET             | NRST
---           | PB6/TOSC1/XTAL1    | PA1/OSCIN
---           | PB7/TOSC2/XTAL2    | PA2/OSCOUT
+Number | UNO pin name | ATMEGA328 pin name | STM8S105K6 pin name
+-------|--------------|--------------------|----------------------------------------
+0      | IO0/RX       | PD0/RXD            | PD6/UART2_RX
+1      | IO1/TX       | PD1/TXD            | PD5/UART2_TX
+2      | IO2          | PD2/INT0           | PD7/TLI [TIM1_CH4]
+3      | IO3          | PD3/INT1/OC2B      | PD2 (HS)/TIM3_CH1 [TIM2_CH3]
+4      | IO4          | PD4/T0/XCK         | PD0 (HS)/TIM3_CH2 [TIM1_BKIN]/[CLK_COO]
+5      | IO5          | PD5/T1/OC0B        | PD4 (HS)/TIM2_CH1 [BEEP]
+6      | IO6          | PD6/AIN0/OC0A      | PD3 (HS)/TIM2_CH2/ADC_ETR
+7      | IO7          | PD7/AIN1           | PD1 (HS)/SWIM
+8      | IO8          | PB0/ICP1/CLKO      | PC1 (HS)/TIM1_CH1/UART2_CK
+9      | IO9          | PB1/OC1A           | PC3 (HS)/TIM1_CH3
+10     | IO10/~~SS~~  | PB2/NSS/OC1B       | PC4 (HS)/TIM1_CH4
+11     | IO11/MOSI    | PB3/MOSI/OC2A      | PC6 (HS)/SPI_MOSI
+12     | IO12/MISO    | PB4/MISO           | PC7 (HS)/SPI_MISO
+13     | IO13/SCK     | PB5/SCK            | PC5 (HS)/SPI_SCK
+14     | AD0          | PC0/ADC0           | PB0/AIN0 [TIM1_CH1N]
+15     | AD1          | PC1/ADC1           | PB1/AIN1 [TIM1_CH2N]
+16     | AD2          | PC2/ADC2           | PB2/AIN2 [TIM1_CH3N]
+17     | AD3          | PC3/ADC3           | PB3/AIN3 [TIM1_ETR]
+18     | AD4/SDA      | PC4/ADC4           | PB5/AIN5 [I2C_SDA]
+19     | AD5/SCL      | PC5/ADC5           | PB4/AIN4 [I2C_SCL]
+20     | AD6          | --                 | --
+21     | AD7          | --                 | --
+_22_   | AREF         | AREF               | PF4/AIN12
+_23_   | _IO23_       | --                 | PC2 (HS)/TIM1_CH2
+_24_   | _IO24/SS_    | --                 | PE5/SPI_NSS
+--     | RESET        | NRESET             | NRST
+--     | --           | PB6/TOSC1/XTAL1    | PA1/OSCIN
+--     | --           | PB7/TOSC2/XTAL2    | PA2/OSCOUT
 
 # Differences
 
