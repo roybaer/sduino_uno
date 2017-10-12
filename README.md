@@ -5,7 +5,7 @@ Both, mechanical and electrical design are to a notable degree based on the [Ard
 
 ![sduino UNO board](img/rendering_3d.png)
 
-# Pin mapping
+## Pin mapping
 
 Number | UNO pin name | ATMEGA328 pin name | STM8S105K6 pin name
 -------|--------------|--------------------|----------------------------------------
@@ -38,21 +38,23 @@ _24_   | _IO24/SS_    | --                 | PE5/SPI_NSS
 --     | --           | PB6/TOSC1/XTAL1    | PA1/OSCIN
 --     | --           | PB7/TOSC2/XTAL2    | PA2/OSCOUT
 
-# Differences
+For evaluation purposes, most of the sduino UNO's functionality can be imitated with an STM8-DISCOVERY board and a USB to Serial converter, as described in [docs/discovery.md](this document).
+
+## Differences
 
 The following paragraphs highlight the most important differences between Arduino UNO and sduino UNO.
 
-## Mechanical
+### Mechanical
 
 The gap between the upper socket strips has been reduced from 0.06 to 0.05 inches.
 This should not significantly impact mechanical compatibility with Arduino UNO shields and increases the available radius around the center of the upper left M3 mounting hole from 2.286 to 2.54 millimeters, which should be just enough to fit in a standard M3 spacer (5mm wrench).
 
-## Electrical
+### Electrical
 
 Most importantly, the sduino UNO can be switched between 5V and 3.3V operating voltage.
 The RX and TX LEDs are connected to the RX and TX lines (IO pin 0 and 1, respectively) via 1k resistors, rather than to the USB interface chip.
 
-## Functional
+### Functional
 
 Like many Arduino UNO clones, the sduino UNO uses a CH340G USB to serial converter instead of an Atmega16U2 for communication with the host PC.
 The USB interface Chip therefore cannot be repurposed as a coprocessor or keyboard/mouse simulator.
@@ -66,17 +68,17 @@ Likewise, IO10 does not serve as hardware-slave-select line for the SPI bus.
 This, however, can mostly be overcome by software-emulation, because the STM8 allows for slave-select to be controlled in software, e.g. in an interrupt handler.
 The actual slave-select line has been made available via an exra pin.
 
-## Software
+### Software
 
-Unfortunately there is no C++ compiler available for the STM8 platform, yet.
+Unfortunately, there is no free C++ compiler available for the STM8 platform, yet.
 The Arduino language along with the large pool of existing Arduino sketches can therefore not be used without modifications.
 
-Fortunately there is the C-based [sduino library](https://github.com/tenbaht/sduino) that in fact inspired the creation of the sduino UNO and that this board borrows its name from.
+Fortunately, there is the C-based [sduino library](https://github.com/tenbaht/sduino) that in fact inspired the creation of the sduino UNO and that this board borrows its name from.
 By using the sduino library, the changes required to run many exsting Arduino sketches on an STM8 platform can be kept within manageable bounds.
 
 Possibilities to bring C++ support to the STM8 platform are being evaluated.
 
-# Copying
+## Copying
 
 Even though the sduino UNO CAD files have been created from scratch and the design is not identical, to avoid legal ambiguity, the CAD files for the sduino UNO board are released under the same creative commons license as those of the Arduino UNO board:
 
