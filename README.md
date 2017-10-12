@@ -38,7 +38,7 @@ _24_   | _IO24/SS_    | --                 | PE5/SPI_NSS
 --     | --           | PB6/TOSC1/XTAL1    | PA1/OSCIN
 --     | --           | PB7/TOSC2/XTAL2    | PA2/OSCOUT
 
-For evaluation purposes, most of the sduino UNO's functionality can be imitated with an STM8-DISCOVERY board and a USB to Serial converter, as described in [docs/discovery.md](this document).
+For evaluation purposes, most of the sduino UNO's functionality can be imitated with an STM8-DISCOVERY board and a USB to Serial converter, as described in [this document](docs/discovery.md).
 
 ## Differences
 
