@@ -3,7 +3,7 @@
 The __sduino UNO__ is an attempt at creating a mechanically and electrically Arduino-UNO-compatible development board based on the __STM8S105K6__ microcontroller.
 Both, mechanical and electrical design are to a notable degree based on the [Arduino UNO board](https://store.arduino.cc/arduino-uno-rev3).
 
-![sduino UNO board](img/rendering_3d.png)
+![sduino UNO board](img/perspective.jpg)
 
 ## Pin mapping
 
