@@ -1,4 +1,4 @@
-update=Fr 15 Sep 2017 21:45:54 CEST
+update=Mo 16 Okt 2017 16:39:45 CEST
 version=1
 last_client=kicad
 [pcbnew]
@@ -63,3 +63,13 @@ LibName31=contrib
 LibName32=valves
 LibName33=stm8
 LibName34=ch430g
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
