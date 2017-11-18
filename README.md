@@ -5,6 +5,8 @@ Both, mechanical and electrical design are to a notable degree based on the [Ard
 
 ![sduino UNO board](img/perspective.jpg)
 
+Components and silkscreen can be viewed in more detail in a [picture of the component side](img/front.jpg) and a [picture of the back side](img/back.jpg) of the assembled board.
+
 ## Pin mapping
 
 Number | UNO pin name | ATMEGA328 pin name | STM8S105K6 pin name
@@ -76,7 +78,7 @@ The Arduino language along with the large pool of existing Arduino sketches can 
 Fortunately, there is the C-based [sduino library](https://github.com/tenbaht/sduino) that in fact inspired the creation of the sduino UNO and that this board borrows its name from.
 By using the sduino library, the changes required to run many exsting Arduino sketches on an STM8 platform can be kept within manageable bounds.
 
-Possibilities to bring C++ support to the STM8 platform are being evaluated.
+Possibilities to bring C++ support to the STM8 platform with a free compiler are being evaluated.
 
 ## Copying
 
